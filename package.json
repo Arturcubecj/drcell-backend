@@ -1,0 +1,24 @@
+{
+  "name": "drcell-back",
+  "version": "1.0.0",
+  "description": "Proyecto del Primer Parcial de DAWA",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
+  "keywords": [],
+  "author": "Arturo Vasquez - Anderson Espinosa - Viviana",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "joi": "^18.2.1",
+    "mysql2": "^3.22.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
