@@ -2,12 +2,12 @@ import express        from 'express';
 import cors           from 'cors';
 import { PORT, config_cors } from './config/config.js';
 
-import auth_routes         from './routes/auth.routes.js';
-import clientes_routes     from './routes/clientes.routes.js';
-import tecnicos_routes     from './routes/tecnicos.routes.js';
-import repuestos_routes    from './routes/repuestos.routes.js';
-import reparaciones_routes from './routes/reparaciones.routes.js';
-import facturas_routes     from './routes/facturas.routes.js';
+import auth_routes         from './routes/authRoutes.js';
+import clientes_routes     from './routes/clientesRoutes.js';
+import tecnicos_routes     from './routes/tecnicosRoutes.js';
+import repuestos_routes    from './routes/repuestosRoutes.js';
+import reparaciones_routes from './routes/reparacionesRoutes.js';
+import facturas_routes     from './routes/facturasRoutes.js';
 
 // Inicializar express
 const app = express();
