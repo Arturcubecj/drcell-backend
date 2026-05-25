@@ -1,10 +1,10 @@
-import { db_pool_conexiones } from "../database/db";
+import { db_pool_conexiones } from "../database/db.js";
 import { responses_success, responses_not_found, responses_error, bad_request } from '../responses/responses.js';
 // Obtener todos los clientes
 export const obtenerClientes = async (req, res) => {
     try{
         const [rows] = await db_pool_conexiones.query('SELECT * FROM clientes');
-        if(rows.legth > 0){
+        if(rows.length > 0){
             res.status(200).json(responses_success(rows, 'Listado de clientes obtenido exitosamente...'))
         }else{
             res.status(404).json(responses_not_found('No se encontraron clientes...'));
@@ -18,12 +18,12 @@ export const obtenerClientes = async (req, res) => {
 // Obtener cliente por id
 export const obtenerClienteById = async (req, res) => {
     try{
-        const {id} = req.parms;
+        const {id} = req.params;
         if (!id || isNaN(id)) {
             return res.status(400).json(bad_request('El ID del cliente es requerido y debe ser un numero valido'));
         }
         const [rows] = await db_pool_conexiones.query(' SELECT * FROM clientes Where id = ? ' , [id]);
-        if (rows.lenght > 0 ){
+        if (rows.length > 0 ){
             res.status(200).json(responses_success(rows[0], 'El Cliente fue obtenido exitosamente...'));
         } else {
             res.status(404).json(responses_not_found('El cliente con el ID ingresado no existe...'));

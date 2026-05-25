@@ -1,4 +1,4 @@
-import { db_pool_conexiones } from "../database/db";
+import { db_pool_conexiones } from "../database/db.js";
 import { responses_success, responses_not_found, responses_error, bad_request } from '../responses/responses.js';
 export const login = async (req, res) => {
     try{

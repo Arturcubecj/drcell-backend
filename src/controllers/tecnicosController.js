@@ -49,7 +49,7 @@ export const crearTecnico = async (req, res) => {
         const [usuario] = await db_pool_conexiones.query('INSERT INTO usuarios (nombre, correo, password, rol) VALUES (?, ?, ?, ?)', [nombre, correo, password, 'tecnico']);
 
         // Crear tecnico vinculado al usuario
-        const [tecnico] = await db_pool_conexiones.query(' INSERT INTO tecnicos (usuario_id, telefono, especialidad) VALUES (?, ?, ?,)', [usuario.InsertId, telefono, especialidad]);
+        const [tecnico] = await db_pool_conexiones.query(' INSERT INTO tecnicos (usuario_id, telefono, especialidad) VALUES (?, ?, ?)', [usuario.insertId, telefono, especialidad]);
         res.status(201).json(responses_created(tecnico.insertId, 'Tecnico creado exitosamente'));
     }catch(error){
         console.error('Error al crear el tecnico: ', error);
