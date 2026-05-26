@@ -8,11 +8,10 @@ import {
 export const obtenerReparaciones = async (req, res) => {
     try {
         const [rows] = await db_pool_conexiones.query(`
-            SELECT r.id, r.codigo, c.nombre AS cliente, c.cedula,
-                   u.nombre AS tecnico, r.equipo, r.nota, r.estado,
-                   r.precio_servicio, r.precio_repuestos, r.total,
-                   r.fecha_entrega_estimada, r.garantia_dias,
-                   r.created_at, r.updated_at
+            SELECT r.id, r.codigo, r.cliente_id, c.nombre AS cliente, c.cedula,
+            r.tecnico_id, u.nombre AS tecnico, r.equipo, r.nota, r.estado,
+            r.precio_servicio, r.precio_repuestos, r.total,
+            r.fecha_entrega_estimada, r.garantia_dias, r.created_at, r.updated_at
             FROM reparaciones r
             INNER JOIN clientes c  ON r.cliente_id = c.id
             LEFT  JOIN tecnicos t  ON r.tecnico_id = t.id
